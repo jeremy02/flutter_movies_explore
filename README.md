@@ -10,7 +10,6 @@ The app was created to simulate all the system behind the UI kit in the link. Th
 ## The Inspiration
 The images below shows the inspiration concept of the app.
 
-
 App  Preview
 :-------------------------:
 ![](screenshots/app_preview.png)
