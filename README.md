@@ -14,3 +14,9 @@ The images below shows the inspiration concept of the app.
 App  Preview
 :-------------------------:
 ![](screenshots/app_preview.png)
+
+## Design Details
+As exposed on the inspiration video, there's all the design details also present in this app.
+
+## Notes
+Still in progress
