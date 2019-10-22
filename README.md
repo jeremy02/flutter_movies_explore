@@ -1,16 +1,6 @@
-# flutter_movies_explore
+# Movies Explore
 
-A new Flutter application.
+App concept created with android using flutter programming language, inspired by [Movie Explorer.](https://www.uplabs.com/posts/movie-explorer-service-app-for-watching-movies-and-tv-series) design found on uplabs.
 
-## Getting Started
+The same design can also be found on [Movie Explorer : Service App for Watching Movies and TV Series] (https://dribbble.com/shots/7734747-Movie-Explorer-Service-App-for-Watching-Movies-and-TV-Series) design found on dribble.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
