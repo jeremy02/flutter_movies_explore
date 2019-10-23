@@ -11,9 +11,30 @@ class MovieDetailScreen extends StatelessWidget{
 		return Scaffold(
 			backgroundColor: Colors.black,
 			appBar: AppBar(
-				title: Text(
-					title
+				elevation: 0.0,
+				leading: Icon(
+					Icons.menu,
 				),
+				automaticallyImplyLeading: false,
+				centerTitle: true,
+				title: Text(
+					title,
+					style: TextStyle(
+						fontSize: 18.0,
+						fontWeight: FontWeight.w800,
+					),
+				),
+				actions: <Widget>[
+					InkWell(
+						onTap: (){},
+						child: Padding(
+							padding: EdgeInsets.symmetric(horizontal: 8.0),
+							child: Icon(
+								Icons.search,
+							),
+						),
+					),
+				],
 			),
 			body: Container(
 				width: double.infinity,

@@ -15,6 +15,7 @@ class Constants{
 		backgroundColor: darkBG,
 		primaryColor: darkPrimary,
 		accentColor: darkAccent,
+		fontFamily: 'Miso',
 		scaffoldBackgroundColor: darkBG,
 		cursorColor: darkAccent,
 		appBarTheme: AppBarTheme(
