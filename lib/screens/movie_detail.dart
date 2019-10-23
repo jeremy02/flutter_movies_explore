@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movies_explore/widgets/blurred_container.dart';
 
 class MovieDetailScreen extends StatelessWidget{
 	
@@ -56,13 +57,17 @@ class MovieDetailScreen extends StatelessWidget{
 					],
 				),
 			),
-			body: Container(
-				width: double.infinity,
-				height: double.infinity,
-				decoration: BoxDecoration(
-					color: Colors.blueAccent.shade100,
-				),
-			),
+			body: Stack(
+				fit: StackFit.expand,
+				children: <Widget>[
+					Image.asset(
+						"assets/images/joker_detail_poster.jpg",
+						fit: BoxFit.cover,
+					),
+					BlurredContainer(alignment: Alignment.topCenter, height: MediaQuery.of(context).size.height*0.08, verticalOffset: -10.0),
+					BlurredContainer(alignment: Alignment.bottomCenter, height: MediaQuery.of(context).size.height*0.18, verticalOffset: -20.0)
+				],
+			)
 		);
 	}
 }
