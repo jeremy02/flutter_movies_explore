@@ -18,7 +18,7 @@ class BlurredContainer extends StatelessWidget{
 				decoration: BoxDecoration(
 					boxShadow: [
 						BoxShadow(
-							color: Colors.white.withOpacity(1.0),
+							color: Colors.black.withOpacity(1.0),
 							blurRadius: 40.0,// has the effect of softening the shadow
 							spreadRadius: 5.0,// has the effect of extending the shadow
 							offset: Offset(

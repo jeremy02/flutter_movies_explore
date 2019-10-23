@@ -38,7 +38,7 @@ class MovieDetailScreen extends StatelessWidget{
 									title,
 									style: TextStyle(
 										fontSize: 20.0,
-										fontWeight: FontWeight.w800,
+										fontWeight: FontWeight.w700,
 									),
 								),
 							),
@@ -64,8 +64,8 @@ class MovieDetailScreen extends StatelessWidget{
 						"assets/images/joker_detail_poster.jpg",
 						fit: BoxFit.cover,
 					),
-					BlurredContainer(alignment: Alignment.topCenter, height: MediaQuery.of(context).size.height*0.08, verticalOffset: -10.0),
-					BlurredContainer(alignment: Alignment.bottomCenter, height: MediaQuery.of(context).size.height*0.18, verticalOffset: -20.0)
+					BlurredContainer(alignment: Alignment.topCenter, height: MediaQuery.of(context).size.height*0.08, verticalOffset: 10.0),
+					BlurredContainer(alignment: Alignment.bottomCenter, height: MediaQuery.of(context).size.height*0.18, verticalOffset: -10.0),
 				],
 			)
 		);
