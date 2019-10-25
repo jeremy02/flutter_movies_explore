@@ -5,8 +5,9 @@ class BlurredContainer extends StatelessWidget{
 	final Alignment alignment;
 	final double height;
 	final double verticalOffset;
+	final Color color;
 
-    const BlurredContainer({Key key, this.alignment, this.height, this.verticalOffset}) : super(key: key);
+    const BlurredContainer({Key key, this.alignment, this.height, this.verticalOffset, this.color}) : super(key: key);
 	
 	@override
 	Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class BlurredContainer extends StatelessWidget{
 				decoration: BoxDecoration(
 					boxShadow: [
 						BoxShadow(
-							color: Colors.black.withOpacity(1.0),
+							color: color,
 							blurRadius: 40.0,// has the effect of softening the shadow
 							spreadRadius: 5.0,// has the effect of extending the shadow
 							offset: Offset(
