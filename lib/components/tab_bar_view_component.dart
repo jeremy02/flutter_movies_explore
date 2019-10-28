@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TabBarViewComponent extends StatelessWidget{
+	
 	final String movieDetail;
 
     const TabBarViewComponent({Key key, this.movieDetail}) : super(key: key);
@@ -9,7 +10,7 @@ class TabBarViewComponent extends StatelessWidget{
 	Widget build(BuildContext context) {
 		return Stack(
 			children: <Widget>[
-				playButton(),
+				playButton(context),
 				Positioned(
 					bottom: 0.0,
 					left: 0.0,
@@ -42,39 +43,64 @@ class TabBarViewComponent extends StatelessWidget{
 							fontSize: 36.0,
 						),
 					),
-					Text(
-						"English | Crime,Fantasy.Thriller",
-						style: TextStyle(
-							color: Colors.white.withOpacity(0.85),
-							fontWeight: FontWeight.w500,
+					Padding(
+						padding: EdgeInsets.fromLTRB(0.0, 10.0, 0, 16.0),
+						child: Row(
+							children: <Widget>[
+								Text(
+									"English",
+									style: TextStyle(
+										color: Colors.white,
+										fontWeight: FontWeight.w500,
+									),
+								),
+								Padding(
+									padding: EdgeInsets.symmetric(horizontal: 2.0),
+									child: Text(
+										"|",
+										style: TextStyle(
+											color: Colors.white,
+											fontWeight: FontWeight.w500,
+										),
+									),
+								),
+								Text(
+									"Crime,Fantasy & Thriller",
+									style: TextStyle(
+										color: Colors.white,
+										fontWeight: FontWeight.w500,
+									),
+								),
+								Container(),
+							],
 						),
 					),
 					Container(
 						width: width,
-							child: Text(
-								"Hello, everyone! 👋"+
-									
-									"What a great movie the JOKER is! I have seen recently. That is why I created this shot. I hope you will like it."+
-									
-									"What a great movie the JOKER is! I have seen recently. That is why I created this shot. I hope you will like it.",
-								style: TextStyle(
-									color: Colors.white.withOpacity(0.85),
-									fontSize: 16
-								),
-								softWrap: true,
+						child: Text(
+							"Hello, everyone! 👋"+
+								"What a great movie the JOKER is! I have seen recently. That is why I created this shot. I hope you will like it."+
+								"What a great movie the JOKER is! I have seen recently. That is why I created this shot. I hope you will like it.",
+							style: TextStyle(
+								color: Colors.white,
+								fontSize: 14,
+								height: 1.5,
 							),
+							softWrap: true,
+						),
 					),
 				],
 			),
 		);
 	}
 	
-	Widget playButton(){
-		return Align(
-			alignment: Alignment.center,
-			child:RawMaterialButton(
+	Widget playButton(BuildContext context){
+		return Positioned(
+			bottom: MediaQuery.of(context).size.height/2.5,
+			right: MediaQuery.of(context).size.width/2.65,
+			child: RawMaterialButton(
 				onPressed: () {
-					print("Added");
+					print("Played");
 				},
 				child: Icon(
 					Icons.play_arrow,
@@ -83,7 +109,7 @@ class TabBarViewComponent extends StatelessWidget{
 				),
 				shape: CircleBorder(),
 				elevation: 2.0,
-				fillColor: Colors.red.shade600,
+				fillColor: Colors.red,
 				padding:EdgeInsets.all(12.0),
 			),
 		);

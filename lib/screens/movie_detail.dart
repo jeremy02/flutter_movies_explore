@@ -101,13 +101,11 @@ class MovieDetailScreenState extends State<MovieDetailScreen> with TickerProvide
 						fit: BoxFit.cover,
 					),
 					BlurredContainer(alignment: Alignment.topCenter, height: MediaQuery.of(context).size.height*0.08, verticalOffset: 10.0, color: Colors.black.withOpacity(1.0)),
-					BlurredContainer(alignment: Alignment.bottomCenter, height: MediaQuery.of(context).size.height*0.24, verticalOffset: 0.0, color: Colors.black.withOpacity(0.7)),
 					Column(
 						mainAxisSize: MainAxisSize.max,
 						crossAxisAlignment: CrossAxisAlignment.start,
 						children: <Widget>[
 							topContainer(),
-							SizedBox(height: 4,),
 							Flexible(
 								flex: 1,
 								child: TabBarView(
@@ -115,9 +113,9 @@ class MovieDetailScreenState extends State<MovieDetailScreen> with TickerProvide
 									children: createTabBarViews(),
 								),
 							),
-							SizedBox(height: 10,),
 						],
 					),
+					BlurredContainer(alignment: Alignment.bottomCenter, height: MediaQuery.of(context).size.height*0.08, verticalOffset: 0.0, color: Colors.black.withOpacity(0.8)),
 				],
 			),
 		);
@@ -130,8 +128,8 @@ class MovieDetailScreenState extends State<MovieDetailScreen> with TickerProvide
 				crossAxisAlignment: CrossAxisAlignment.start,
 				children: <Widget>[
 					Container(
-						color: Colors.white.withOpacity(0.85),
-						height: 1.0,
+						color: Colors.white.withOpacity(0.6),
+						height: 0.5,
 					),
 					Container(
 						margin: EdgeInsets.symmetric(horizontal: 12.0,vertical: 8.0),
@@ -146,8 +144,8 @@ class MovieDetailScreenState extends State<MovieDetailScreen> with TickerProvide
 						),
 					),
 					Container(
-						color: Colors.white.withOpacity(0.85),
-						height: 1.0,
+						color: Colors.white.withOpacity(0.6),
+						height: 0.5,
 					),
 				],
 			),
