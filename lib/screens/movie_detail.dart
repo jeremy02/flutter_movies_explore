@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movies_explore/components/tab_bar_view_component.dart';
 import 'package:flutter_movies_explore/widgets/blurred_container.dart';
 
 class MovieDetailScreen extends StatefulWidget{
@@ -100,51 +101,58 @@ class MovieDetailScreenState extends State<MovieDetailScreen> with TickerProvide
 						fit: BoxFit.cover,
 					),
 					BlurredContainer(alignment: Alignment.topCenter, height: MediaQuery.of(context).size.height*0.08, verticalOffset: 10.0, color: Colors.black.withOpacity(1.0)),
-					BlurredContainer(alignment: Alignment.bottomCenter, height: MediaQuery.of(context).size.height*0.24, verticalOffset: 0.0, color: Colors.black.withOpacity(0.5)),
-					playButton(),
+					BlurredContainer(alignment: Alignment.bottomCenter, height: MediaQuery.of(context).size.height*0.24, verticalOffset: 0.0, color: Colors.black.withOpacity(0.7)),
+					Positioned(
+						top: 0.0,
+						left: 0.0,
+						child: topContainer(),
+					),
 					Column(
 						mainAxisSize: MainAxisSize.max,
 						crossAxisAlignment: CrossAxisAlignment.start,
 						children: <Widget>[
-							Padding(
-								padding: EdgeInsets.symmetric(horizontal: 4.0),
-								child: Column(
-									crossAxisAlignment: CrossAxisAlignment.start,
-									children: <Widget>[
-										Container(
-											color: Colors.white.withOpacity(0.85),
-											height: 1.0,
-										),
-										Container(
-											margin: EdgeInsets.fromLTRB(12.0, 0.0, 10.0, 4.0),
-											child: TabBar(
-												controller: _tabController,
-												indicatorSize: TabBarIndicatorSize.label,
-												isScrollable: true,
-												indicatorColor: Colors.transparent,
-												labelPadding: EdgeInsets.only(right: 20),
-												indicatorPadding: EdgeInsets.all(0),
-												tabs: createTabs(),
-											),
-										),
-										Container(
-											color: Colors.white.withOpacity(0.85),
-											height: 1.0,
-										),
-									],
-								),
-							),
-							Expanded(
-								child: Stack(
-									children: <Widget>[
-									
-									],
+							Flexible(
+								flex: 1,
+								child: TabBarView(
+									controller: _tabController,
+									children: createTabBarViews(),
 								),
 							),
 						],
 					),
 				],
 			)
+		);
+	}
+	
+	Widget topContainer() {
+		return Padding(
+			padding: EdgeInsets.symmetric(horizontal: 4.0),
+			child: Column(
+				crossAxisAlignment: CrossAxisAlignment.start,
+				children: <Widget>[
+					Container(
+						color: Colors.white.withOpacity(0.85),
+						height: 1.0,
+					),
+					Container(
+						margin: EdgeInsets.fromLTRB(12.0, 0.0, 10.0, 4.0),
+						child: TabBar(
+							controller: _tabController,
+							indicatorSize: TabBarIndicatorSize.label,
+							isScrollable: true,
+							indicatorColor: Colors.transparent,
+							labelPadding: EdgeInsets.only(right: 20),
+							indicatorPadding: EdgeInsets.all(0),
+							tabs: createTabs(),
+						),
+					),
+					Container(
+						color: Colors.white.withOpacity(0.85),
+						height: 1.0,
+					),
+				],
+			),
 		);
 	}
 	
@@ -162,21 +170,10 @@ class MovieDetailScreenState extends State<MovieDetailScreen> with TickerProvide
 		});
 	}
 	
-	Widget playButton(){
-		return Align(
-			alignment: Alignment.center,
-			child:RawMaterialButton(
-				onPressed: () {},
-				child: Icon(
-					Icons.play_arrow,
-					color: Colors.white,
-					size: 28.0,
-				),
-				shape: CircleBorder(),
-				elevation: 2.0,
-				fillColor: Colors.red.shade600,
-				padding:EdgeInsets.all(12.0),
-			),
-		);
+	// the tabs to show
+	List<Widget> createTabBarViews() {
+		return List<Widget>.generate(listCategories.length, (int index){
+			return TabBarViewComponent(movieDetail: listCategories[index]);
+		});
 	}
 }
