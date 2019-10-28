@@ -102,15 +102,12 @@ class MovieDetailScreenState extends State<MovieDetailScreen> with TickerProvide
 					),
 					BlurredContainer(alignment: Alignment.topCenter, height: MediaQuery.of(context).size.height*0.08, verticalOffset: 10.0, color: Colors.black.withOpacity(1.0)),
 					BlurredContainer(alignment: Alignment.bottomCenter, height: MediaQuery.of(context).size.height*0.24, verticalOffset: 0.0, color: Colors.black.withOpacity(0.7)),
-					Positioned(
-						top: 0.0,
-						left: 0.0,
-						child: topContainer(),
-					),
 					Column(
 						mainAxisSize: MainAxisSize.max,
 						crossAxisAlignment: CrossAxisAlignment.start,
 						children: <Widget>[
+							topContainer(),
+							SizedBox(height: 4,),
 							Flexible(
 								flex: 1,
 								child: TabBarView(
@@ -118,10 +115,11 @@ class MovieDetailScreenState extends State<MovieDetailScreen> with TickerProvide
 									children: createTabBarViews(),
 								),
 							),
+							SizedBox(height: 10,),
 						],
 					),
 				],
-			)
+			),
 		);
 	}
 	
@@ -136,7 +134,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen> with TickerProvide
 						height: 1.0,
 					),
 					Container(
-						margin: EdgeInsets.fromLTRB(12.0, 0.0, 10.0, 4.0),
+						margin: EdgeInsets.symmetric(horizontal: 12.0,vertical: 8.0),
 						child: TabBar(
 							controller: _tabController,
 							indicatorSize: TabBarIndicatorSize.label,
@@ -162,8 +160,8 @@ class MovieDetailScreenState extends State<MovieDetailScreen> with TickerProvide
 			return Text(
 				listCategories[index].toUpperCase(),
 				style: TextStyle(
-					fontWeight: FontWeight.bold,
-					fontSize: 16.0,
+					fontWeight: FontWeight.normal,
+					fontSize: 14.0,
 					color: _activeTabIndex == index ? Colors.blue.shade400 : Colors.white,
 				),
 			);
