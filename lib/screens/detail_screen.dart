@@ -3,19 +3,19 @@ import 'package:flutter_movies_explore/components/custom_app_bar.dart';
 import 'package:flutter_movies_explore/components/tab_bar_view_component.dart';
 import 'package:flutter_movies_explore/widgets/blurred_container.dart';
 
-class MovieDetailScreen extends StatefulWidget{
+class DetailScreen extends StatefulWidget{
 	
 	final String title;
 
-    const MovieDetailScreen({Key key, this.title}) : super(key: key);
+    const DetailScreen({Key key, this.title}) : super(key: key);
 	
 	@override
-	MovieDetailScreenState createState() => MovieDetailScreenState();
+	DetailScreenState createState() => DetailScreenState();
 }
 
-class MovieDetailScreenState extends State<MovieDetailScreen> with TickerProviderStateMixin{
+class DetailScreenState extends State<DetailScreen> with TickerProviderStateMixin{
 	
-	List<String> listCategories = ["Bags", "Shoes", "Jackets","Bags", "Shoes", "Jackets","Bags", "Shoes", "Jackets"];
+	List<String> listCategories = ["Synopsis", "Cast", "Crew","User Reviews", "Critics", "Ratings"];
 	
 	TabController _tabController;
 	int _activeTabIndex = 0;
@@ -67,7 +67,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen> with TickerProvide
 						mainAxisSize: MainAxisSize.max,
 						crossAxisAlignment: CrossAxisAlignment.start,
 						children: <Widget>[
-							topContainer(),
+							tabBarContainer(),
 							Flexible(
 								flex: 1,
 								child: TabBarView(
@@ -83,7 +83,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen> with TickerProvide
 		);
 	}
 	
-	Widget topContainer() {
+	Widget tabBarContainer() {
 		return Padding(
 			padding: EdgeInsets.symmetric(horizontal: 4.0),
 			child: Column(
@@ -100,7 +100,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen> with TickerProvide
 							indicatorSize: TabBarIndicatorSize.label,
 							isScrollable: true,
 							indicatorColor: Colors.transparent,
-							labelPadding: EdgeInsets.only(right: 32),
+							labelPadding: EdgeInsets.only(right: 26),
 							indicatorPadding: EdgeInsets.all(0),
 							tabs: createTabs(),
 						),

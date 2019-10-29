@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_movies_explore/screens/movie_detail.dart';
+import 'package:flutter_movies_explore/screens/home_screen.dart';
 import 'package:flutter_movies_explore/utils/constants.dart';
 
 void main() async{
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
 			debugShowCheckedModeBanner: false,
 			title: Constants.appName,
 			theme: Constants.darkTheme,
-			home: MovieDetailScreen(title: Constants.appName),
+			home: HomeScreen(),
 		);
 	}
 }
