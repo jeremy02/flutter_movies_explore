@@ -8,6 +8,7 @@ class DotsIndicator extends AnimatedWidget {
 		this.controller,
 		this.itemCount,
 		this.color: Colors.white,
+		this.currentIndex,
 	}) : super(listenable: controller);
 	
 	/// The ScrollController that this DotsIndicator is representing.
@@ -19,23 +20,28 @@ class DotsIndicator extends AnimatedWidget {
 	/// The color of the dots Defaults to `Colors.white`.
 	final Color color;
 	
+	// the position that the scroll controller is at
+	final int currentIndex;
+	
 	// The base size of the dots
-	static const double _kDotSize = 8.0;
+	static const double _kDotSize = 6.0;
 	
 	// The increase in the size of the selected dot
 	static const double _kMaxZoom = 2.0;
 	
 	// The distance between the center of each dot
-	static const double _kDotSpacing = 24.0;
+	static const double _kDotSpacing = 16.0;
 	
 	Widget _buildDot(int index) {
 		double selectedness = Curves.easeOut.transform(
 			max(
 				0.0,
-				1.0,
+				1.0 - ((currentIndex ?? currentIndex-1) - index).abs(),
 			),
 		);
-		double zoom = 1.0 + (_kMaxZoom - 1.0) * selectedness;
+		
+		double zoom = (1.0 + (_kMaxZoom - 1.0) * selectedness) * 1.2;
+		
 		return Container(
 			width: _kDotSpacing,
 			child: Center(
@@ -43,8 +49,12 @@ class DotsIndicator extends AnimatedWidget {
 					color: color,
 					type: MaterialType.circle,
 					child: Container(
-						width: (_kDotSize/(index*0.6) * zoom),
+						width: _kDotSize/(index*0.6) * zoom,
 						height: _kDotSize * zoom,
+						decoration: BoxDecoration(
+							color: index == currentIndex ? Colors.white : Colors.grey.shade500,
+							shape: BoxShape.circle,
+						),
 					),
 				),
 			),
@@ -52,9 +62,9 @@ class DotsIndicator extends AnimatedWidget {
 	}
 	
 	Widget build(BuildContext context) {
-		return new Row(
+		return Row(
 			mainAxisAlignment: MainAxisAlignment.center,
-			children: new List<Widget>.generate(itemCount, _buildDot),
+			children: List<Widget>.generate(itemCount, _buildDot),
 		);
 	}
 }
