@@ -32,16 +32,97 @@ class HomeScreenState extends State<HomeScreen>{
 						left: 0.0,
 						child: Container(
 							width: double.infinity,
-							height: MediaQuery.of(context).size.height*0.30,
+							height: MediaQuery.of(context).size.height*0.34,
+							margin: EdgeInsets.symmetric(horizontal: 16.0),
 							child: Column(
 								children: <Widget>[
-								
+									Row(
+										children: <Widget>[
+											Column(
+												mainAxisAlignment: MainAxisAlignment.start,
+												crossAxisAlignment: CrossAxisAlignment.start,
+												children: <Widget>[
+													MovieInfoCaption(),
+												],
+											),
+											Spacer(),
+											playButton(context),
+										],
+									),
 								],
 							),
 						),
 					),
 				],
 			),
+		);
+	}
+
+    Widget MovieInfoCaption() {
+		return Column(
+			mainAxisAlignment: MainAxisAlignment.start,
+			crossAxisAlignment: CrossAxisAlignment.start,
+			children: <Widget>[
+				Text(
+					"Joker",
+					style: TextStyle(
+						color: Colors.white,
+						fontWeight: FontWeight.bold,
+						fontSize: 32.0,
+					),
+				),
+				SizedBox(
+					height: 6.0,
+				),
+				Row(
+					children: <Widget>[
+						Text(
+							"English",
+							style: TextStyle(
+								color: Colors.white,
+								fontWeight: FontWeight.w500,
+							),
+						),
+						Padding(
+							padding: EdgeInsets.symmetric(horizontal: 2.0),
+							child: Text(
+								"|",
+								style: TextStyle(
+									color: Colors.white,
+									fontWeight: FontWeight.w500,
+								),
+							),
+						),
+						Text(
+							"Crime,Fantasy & Thriller",
+							style: TextStyle(
+								color: Colors.white,
+								fontWeight: FontWeight.w500,
+							),
+						),
+						Container(),
+					],
+				),
+			],
+		);
+    }
+	
+	
+	
+	Widget playButton(BuildContext context){
+		return RawMaterialButton(
+			onPressed: () {
+				print("Played");
+			},
+			child: Icon(
+				Icons.play_arrow,
+				color: Colors.white,
+				size: 28.0,
+			),
+			shape: CircleBorder(),
+			elevation: 2.0,
+			fillColor: Colors.red,
+			padding:EdgeInsets.all(12.0),
 		);
 	}
 }
