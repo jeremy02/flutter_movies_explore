@@ -4,7 +4,24 @@ import 'package:flutter_movies_explore/components/movies_list_component.dart';
 import 'package:flutter_movies_explore/components/play_button.dart';
 import 'package:flutter_movies_explore/utils/constants.dart';
 
-class HomeScreen extends StatelessWidget{
+class HomeScreen extends StatefulWidget{
+	@override
+	HomeScreenState createState() => HomeScreenState();
+}
+
+class HomeScreenState extends State<HomeScreen>{
+	
+	@override
+	void initState() {
+		super.initState();
+	}
+	
+	@override
+	void dispose() {
+		super.dispose();
+	}
+	
+	
 	@override
 	Widget build(BuildContext context) {
 		return Scaffold(
@@ -61,8 +78,8 @@ class HomeScreen extends StatelessWidget{
 			),
 		);
 	}
-
-    Widget MovieInfoCaption() {
+	
+	Widget MovieInfoCaption() {
 		return Column(
 			crossAxisAlignment: CrossAxisAlignment.start,
 			children: <Widget>[
@@ -108,5 +125,5 @@ class HomeScreen extends StatelessWidget{
 				),
 			],
 		);
-    }
+	}
 }
