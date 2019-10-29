@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movies_explore/components/custom_app_bar.dart';
 import 'package:flutter_movies_explore/components/tab_bar_view_component.dart';
 import 'package:flutter_movies_explore/widgets/blurred_container.dart';
 
@@ -52,46 +53,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen> with TickerProvide
 					MediaQuery.of(context).size.width,
 					56,
 				),
-				child: AppBar(
-					elevation: 0.0,
-					leading: Icon(
-						Icons.menu,
-					),
-					automaticallyImplyLeading: false,
-					centerTitle: true,
-					title: Stack(
-						children: <Widget>[
-							Align(
-								alignment: Alignment.center,
-								child: Image.asset(
-									"assets/images/icon_movie_ticket.png",
-									height: 40,
-								),
-							),
-							Align(
-								alignment: Alignment.center,
-								child: Text(
-									widget.title,
-									style: TextStyle(
-										fontSize: 20.0,
-										fontWeight: FontWeight.w700,
-									),
-								),
-							),
-						],
-					),
-					actions: <Widget>[
-						InkWell(
-							onTap: (){},
-							child: Padding(
-								padding: EdgeInsets.symmetric(horizontal: 8.0),
-								child: Icon(
-									Icons.search,
-								),
-							),
-						),
-					],
-				),
+				child: CustomAppBar(showLogo: false, movieTitle: widget.title),
 			),
 			body: Stack(
 				fit: StackFit.expand,
@@ -138,7 +100,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen> with TickerProvide
 							indicatorSize: TabBarIndicatorSize.label,
 							isScrollable: true,
 							indicatorColor: Colors.transparent,
-							labelPadding: EdgeInsets.only(right: 20),
+							labelPadding: EdgeInsets.only(right: 32),
 							indicatorPadding: EdgeInsets.all(0),
 							tabs: createTabs(),
 						),
