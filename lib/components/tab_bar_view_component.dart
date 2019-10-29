@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movies_explore/components/play_button.dart';
 
 class TabBarViewComponent extends StatelessWidget{
 	
@@ -10,7 +11,11 @@ class TabBarViewComponent extends StatelessWidget{
 	Widget build(BuildContext context) {
 		return Stack(
 			children: <Widget>[
-				playButton(context),
+				Positioned(
+					bottom: MediaQuery.of(context).size.height/2.5,
+					right: MediaQuery.of(context).size.width/2.65,
+					child: PlayButton(),
+				),
 				Positioned(
 					bottom: 0.0,
 					left: 0.0,
@@ -90,27 +95,6 @@ class TabBarViewComponent extends StatelessWidget{
 						),
 					),
 				],
-			),
-		);
-	}
-	
-	Widget playButton(BuildContext context){
-		return Positioned(
-			bottom: MediaQuery.of(context).size.height/2.5,
-			right: MediaQuery.of(context).size.width/2.65,
-			child: RawMaterialButton(
-				onPressed: () {
-					print("Played");
-				},
-				child: Icon(
-					Icons.play_arrow,
-					color: Colors.white,
-					size: 28.0,
-				),
-				shape: CircleBorder(),
-				elevation: 2.0,
-				fillColor: Colors.red,
-				padding:EdgeInsets.all(12.0),
 			),
 		);
 	}

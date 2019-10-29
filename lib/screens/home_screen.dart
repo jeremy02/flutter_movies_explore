@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movies_explore/components/custom_app_bar.dart';
+import 'package:flutter_movies_explore/components/play_button.dart';
 import 'package:flutter_movies_explore/utils/constants.dart';
 
 class HomeScreen extends StatefulWidget{
@@ -33,7 +34,7 @@ class HomeScreenState extends State<HomeScreen>{
 						child: Container(
 							width: double.infinity,
 							height: MediaQuery.of(context).size.height*0.34,
-							margin: EdgeInsets.symmetric(horizontal: 16.0),
+							margin: EdgeInsets.only(left: 16.0,right: 8.0),
 							child: Column(
 								children: <Widget>[
 									Row(
@@ -46,7 +47,7 @@ class HomeScreenState extends State<HomeScreen>{
 												],
 											),
 											Spacer(),
-											playButton(context),
+											PlayButton(),
 										],
 									),
 								],
@@ -106,23 +107,4 @@ class HomeScreenState extends State<HomeScreen>{
 			],
 		);
     }
-	
-	
-	
-	Widget playButton(BuildContext context){
-		return RawMaterialButton(
-			onPressed: () {
-				print("Played");
-			},
-			child: Icon(
-				Icons.play_arrow,
-				color: Colors.white,
-				size: 28.0,
-			),
-			shape: CircleBorder(),
-			elevation: 2.0,
-			fillColor: Colors.red,
-			padding:EdgeInsets.all(12.0),
-		);
-	}
 }
