@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movies_explore/components/custom_app_bar.dart';
+import 'package:flutter_movies_explore/components/movies_list_component.dart';
 import 'package:flutter_movies_explore/components/play_button.dart';
 import 'package:flutter_movies_explore/utils/constants.dart';
 
-class HomeScreen extends StatefulWidget{
-	@override
-	HomeScreenState createState() => HomeScreenState();
-}
-
-class HomeScreenState extends State<HomeScreen>{
+class HomeScreen extends StatelessWidget{
 	@override
 	Widget build(BuildContext context) {
 		return Scaffold(
@@ -49,6 +45,13 @@ class HomeScreenState extends State<HomeScreen>{
 											Spacer(),
 											PlayButton(),
 										],
+									),
+									SizedBox(
+										height: 12.0,
+									),
+									Flexible(
+										flex: 1,
+										child: MoviesList(),
 									),
 								],
 							),
