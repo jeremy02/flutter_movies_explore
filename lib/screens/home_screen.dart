@@ -3,6 +3,7 @@ import 'package:flutter_movies_explore/components/custom_app_bar.dart';
 import 'package:flutter_movies_explore/components/movies_list_component.dart';
 import 'package:flutter_movies_explore/components/play_button.dart';
 import 'package:flutter_movies_explore/utils/constants.dart';
+import 'package:flutter_movies_explore/widgets/blurred_container.dart';
 
 class HomeScreen extends StatefulWidget{
 	@override
@@ -74,6 +75,7 @@ class HomeScreenState extends State<HomeScreen>{
 							),
 						),
 					),
+					BlurredContainer(alignment: Alignment.bottomRight, height: MediaQuery.of(context).size.height*0.07, verticalOffset: 10.0, color: Colors.black.withOpacity(1.0)),
 				],
 			),
 		);

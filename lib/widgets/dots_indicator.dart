@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-/// An indicator showing the currently selected page of a PageController
+/// An indicator showing the currently selected page of a ScrollController
 class DotsIndicator extends AnimatedWidget {
 	DotsIndicator({
 		this.controller,

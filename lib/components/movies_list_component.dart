@@ -69,9 +69,8 @@ class MoviesListState extends State<MoviesList> {
 						},
 					),
 				),
-				Container(
-					color: Colors.grey[800].withOpacity(0.5),
-					padding: EdgeInsets.all(10.0),
+				Padding(
+					padding: EdgeInsets.only(top: 6.0,bottom: 6.0),
 					child: Center(
 						child: DotsIndicator(
 							controller: _moviesListController,
