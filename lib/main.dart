@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_movies_explore/screens/detail_screen.dart';
 import 'package:flutter_movies_explore/screens/home_screen.dart';
 import 'package:flutter_movies_explore/utils/constants.dart';
 

@@ -59,10 +59,10 @@ class DetailScreenState extends State<DetailScreen> with TickerProviderStateMixi
 				fit: StackFit.expand,
 				children: <Widget>[
 					Image.asset(
-						"assets/images/joker_detail_poster.jpg",
+						"assets/images/dark_knight_detail_poster.jpg",
 						fit: BoxFit.cover,
 					),
-					BlurredContainer(alignment: Alignment.topCenter, height: MediaQuery.of(context).size.height*0.08, horizontalOffset: 0.0, verticalOffset: 10.0, color: Colors.black.withOpacity(1.0)),
+					BlurredContainer(alignment: Alignment.topCenter, height: MediaQuery.of(context).size.height*0.08, horizontalOffset: 0.0, verticalOffset: 0.0, color: Colors.black),
 					Column(
 						mainAxisSize: MainAxisSize.max,
 						crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,7 +77,7 @@ class DetailScreenState extends State<DetailScreen> with TickerProviderStateMixi
 							),
 						],
 					),
-					BlurredContainer(alignment: Alignment.bottomCenter, height: MediaQuery.of(context).size.height*0.08, horizontalOffset: 0.0, verticalOffset: 0.0, color: Colors.black.withOpacity(0.8)),
+					BlurredContainer(alignment: Alignment.bottomCenter, height: MediaQuery.of(context).size.height*0.08, horizontalOffset: 0.0, verticalOffset: 0.0, color: Colors.black.withOpacity(0.75)),
 				],
 			),
 		);

@@ -10,10 +10,22 @@ class MoviesListItem extends StatelessWidget{
 				child: Stack(
 					children: <Widget>[
 						Image.asset(
-							"assets/images/jumanji_detail_poster.jpg",
+							"assets/images/jumanji_poster.jpg",
 							fit: BoxFit.cover,
 							width: MediaQuery.of(context).size.width/2,
 							height: MediaQuery.of(context).size.height/2,
+						),
+						Positioned.fill(
+							child: Material(
+								elevation: 2.0,
+								color: Colors.transparent,
+								child: InkWell(
+									splashColor: Colors.black.withOpacity(0.2),
+									onTap: () => {
+									
+									},
+								),
+							),
 						),
 					],
 				),
