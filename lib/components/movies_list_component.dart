@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movies_explore/widgets/dots_indicator.dart';
+import 'package:flutter_movies_explore/widgets/movies_list_item.dart';
 
 class MoviesList extends StatefulWidget{
 	@override
@@ -38,14 +39,7 @@ class MoviesListState extends State<MoviesList> {
 						shrinkWrap: true,
 						itemBuilder: (BuildContext context, int index) {
 							return GestureDetector(
-								child: Container(
-									width: MediaQuery.of(context).size.width/2,
-									height: MediaQuery.of(context).size.height/2,
-									margin: EdgeInsets.only(right: 8.0),
-									decoration: BoxDecoration(
-										color: Colors.white,
-									),
-								),
+								child: MoviesListItem(),
 								onHorizontalDragEnd: (details) {
 									// check if the swipe was a left swipe or right swipe and update the index accordingly.
 									// We then animate the list to scroll to that index in 500ms.
