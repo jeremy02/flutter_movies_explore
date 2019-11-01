@@ -41,7 +41,7 @@ class HomeScreenState extends State<HomeScreen>{
 						"assets/images/joker_poster.jpg",
 						fit: BoxFit.cover,
 					),
-					BlurredContainer(alignment: Alignment.bottomLeft, height: MediaQuery.of(context).size.height*0.24, horizontalOffset: -120.0, verticalOffset: 0.0, color: Colors.black.withOpacity(0.5)),
+					BlurredContainer(alignment: Alignment.bottomCenter, height: MediaQuery.of(context).size.height*0.30, horizontalOffset: 0.0, verticalOffset: 0.0, color: Colors.black.withOpacity(0.75)),
 					BlurredContainer(alignment: Alignment.bottomRight, height: MediaQuery.of(context).size.height*0.10, horizontalOffset: 120.0, verticalOffset: 0.0, color: Colors.black.withOpacity(0.75)),
 					Positioned(
 						bottom: 0.0,

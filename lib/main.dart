@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 			debugShowCheckedModeBanner: false,
 			title: Constants.appName,
 			theme: Constants.darkTheme,
-			home: DetailScreen(title: Constants.appName,),
+			home: HomeScreen(),
 		);
 	}
 }
