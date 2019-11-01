@@ -55,8 +55,8 @@ class MoviesListState extends State<MoviesList> {
 									}
 									// animate or scroll to this index
 									setState(() {
-										print(cardIndex);
-										_moviesListController.animateTo((cardIndex)*188.0, duration: Duration(milliseconds: 500), curve: Curves.fastOutSlowIn);
+										double widthCardRatio = MediaQuery.of(context).size.width*0.5;
+										_moviesListController.animateTo((cardIndex)*widthCardRatio, duration: Duration(milliseconds: 500), curve: Curves.fastOutSlowIn);
 									});
 								},
 							);

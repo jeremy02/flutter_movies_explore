@@ -5,7 +5,7 @@ class MoviesListItem extends StatelessWidget{
 	@override
 	Widget build(BuildContext context) {
 		return Padding(
-			padding: EdgeInsets.only(right: 12.0),
+			padding: EdgeInsets.only(right: 10.0),
 			child: ClipRRect(
 				borderRadius: BorderRadius.all(Radius.circular(12.0)),
 				child: Stack(
@@ -31,7 +31,7 @@ class MoviesListItem extends StatelessWidget{
 							top: 0,
 							right: 0,
 							child: Container(
-								margin: EdgeInsets.only(top: 6.0, right: 6.0),
+								margin: EdgeInsets.only(top: 10.0, right: 10.0),
 								padding: EdgeInsets.symmetric(
 									vertical: 4.0,
 									horizontal: 6.0,
