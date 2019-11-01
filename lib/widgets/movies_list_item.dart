@@ -15,75 +15,98 @@ class MoviesListItem extends StatelessWidget{
 							fit: BoxFit.cover,
 							width: MediaQuery.of(context).size.width/2,
 						),
-						Positioned.fill(
-							child: Material(
-								elevation: 2.0,
-								color: Colors.transparent,
-								child: InkWell(
-									splashColor: Colors.black.withOpacity(0.2),
-									onTap: () => {
-									
-									},
-								),
-							),
-						),
-						Positioned(
-							top: 0,
-							right: 0,
-							child: Container(
-								margin: EdgeInsets.only(top: 10.0, right: 10.0),
-								padding: EdgeInsets.symmetric(
-									vertical: 4.0,
-									horizontal: 6.0,
-								),
-								decoration: BoxDecoration(
-									color: Colors.grey.shade900,
-									borderRadius: BorderRadius.all(
-										Radius.circular(6.0),
-									)
-								),
-								child: Text(
-									"02:25",
-									style: TextStyle(
-										fontSize: 12.0,
-										color: Colors.white,
-									),
-								),
-							),
-						),
-						Positioned(
-							left: 0.0,
-							right: 0.0,
-							bottom: 0.0,
-							child: Container(
-								margin: EdgeInsets.only(bottom: 10.0,left: 10.0,right: 10.0),
-								child: Row(
-									mainAxisAlignment: MainAxisAlignment.spaceBetween,
-									children: <Widget>[
-										Flexible(
-											flex: 1,
-											child: Text(
-												"Jumanji: The Next Level",
-												style: TextStyle(
-													fontSize: 14.0,
-													color: Colors.white,
-												),
-												maxLines: 1,
-											),
-										),
-										PlayButton(
-											buttonSize: 24.0,
-											iconSize: 18.0,
-											buttonColor: Colors.white.withOpacity(0.3),
-											splashColor: Color.fromRGBO(231, 0, 0, 1),
-										),
-									],
-								),
-							),
-						),
+						materialRippleBackGround(),
+						trailerTimeContainer(),
+						bottomContainer(),
 					],
 				),
 			),
 		);
 	}
+
+    Widget materialRippleBackGround() {
+		return Positioned.fill(
+			child: Container(
+				decoration: BoxDecoration(
+					gradient:LinearGradient(
+						begin: Alignment.topLeft,
+						end: Alignment.bottomRight,
+						colors: [Colors.white.withOpacity(0.05), Colors.white.withOpacity(0.05)],
+					)
+				),
+				child: Material(
+					elevation: 2.0,
+					color: Colors.transparent,
+					child: InkWell(
+						splashColor: Colors.black.withOpacity(0.2),
+						onTap: () => {
+						
+						},
+					),
+				),
+			),
+		);
+    }
+
+    Widget trailerTimeContainer() {
+		return Positioned(
+			top: 0,
+			right: 0,
+			child: Container(
+				margin: EdgeInsets.only(top: 10.0, right: 10.0),
+				padding: EdgeInsets.symmetric(
+					vertical: 4.0,
+					horizontal: 6.0,
+				),
+				decoration: BoxDecoration(
+					color: Colors.grey.shade900,
+					borderRadius: BorderRadius.all(
+						Radius.circular(6.0),
+					)
+				),
+				child: Text(
+					"02:25",
+					style: TextStyle(
+						fontSize: 12.0,
+						color: Colors.white,
+					),
+				),
+			),
+		);
+    }
+
+    Widget bottomContainer() {
+		return Positioned(
+			left: 0.0,
+			right: 0.0,
+			bottom: 0.0,
+			child: Container(
+				margin: EdgeInsets.only(bottom: 10.0,left: 10.0,right: 10.0),
+				child: Row(
+					mainAxisAlignment: MainAxisAlignment.spaceBetween,
+					children: <Widget>[
+						Flexible(
+							flex: 1,
+							child: Text(
+								"Jumanji: The Next Level",
+								style: TextStyle(
+									color: Colors.white,
+									fontSize: 14,
+									height: 1.5,
+								),
+								softWrap: true,
+								maxLines: 1,
+							),
+						),
+						PlayButton(
+							buttonSize: 24.0,
+							iconSize: 18.0,
+							buttonColor: Colors.white.withOpacity(0.3),
+							splashColor: Color.fromRGBO(231, 0, 0, 1),
+						),
+					],
+				),
+			),
+		);
+    }
 }
