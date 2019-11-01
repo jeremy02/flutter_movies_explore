@@ -49,7 +49,7 @@ class DotsIndicator extends AnimatedWidget {
 					color: color,
 					type: MaterialType.circle,
 					child: Container(
-						width: _kDotSize/(index*0.6) * zoom,
+						width: _kDotSize/(index*0.5) * zoom,
 						height: _kDotSize * zoom,
 						decoration: BoxDecoration(
 							color: index == currentIndex ? Colors.white : Colors.grey.shade500,
