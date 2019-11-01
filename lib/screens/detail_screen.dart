@@ -59,7 +59,7 @@ class DetailScreenState extends State<DetailScreen> with TickerProviderStateMixi
 				fit: StackFit.expand,
 				children: <Widget>[
 					Image.asset(
-						"assets/images/dark_knight_detail_poster.jpg",
+						"assets/images/joker_detail_poster.jpg",
 						fit: BoxFit.cover,
 					),
 					BlurredContainer(alignment: Alignment.topCenter, height: MediaQuery.of(context).size.height*0.08, horizontalOffset: 0.0, verticalOffset: 0.0, color: Colors.black),

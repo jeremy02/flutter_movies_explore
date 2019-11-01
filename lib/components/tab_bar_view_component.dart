@@ -13,7 +13,7 @@ class TabBarViewComponent extends StatelessWidget{
 			children: <Widget>[
 				Positioned(
 					bottom: MediaQuery.of(context).size.height/2.5,
-					right: MediaQuery.of(context).size.width/2.65,
+					right: MediaQuery.of(context).size.width/2.25,
 					child:
 					PlayButton(
 						buttonSize: 48.0,
