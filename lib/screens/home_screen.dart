@@ -63,10 +63,14 @@ class HomeScreenState extends State<HomeScreen>{
 												],
 											),
 											Spacer(),
-											PlayButton(
-												buttonBg: Colors.red,
-												buttonSize: 28,
-												buttonPadding: 12.0,
+											Padding(
+												padding: EdgeInsets.only(right: 8.0),
+												child: PlayButton(
+													buttonSize: 48.0,
+													iconSize: 28.0,
+													buttonColor: Color.fromRGBO(231, 0, 0, 1),
+													splashColor: Colors.white.withOpacity(0.2),
+												),
 											),
 										],
 									),

@@ -56,43 +56,27 @@ class MoviesListItem extends StatelessWidget{
 							right: 0.0,
 							bottom: 0.0,
 							child: Container(
-								margin: EdgeInsets.only(bottom: 8.0,left: 8.0,right: 8.0),
+								margin: EdgeInsets.only(bottom: 10.0,left: 10.0,right: 10.0),
 								child: Row(
 									mainAxisAlignment: MainAxisAlignment.spaceBetween,
 									children: <Widget>[
 										Flexible(
 											flex: 1,
-											child: Padding(
-												padding: EdgeInsets.only(right: 4.0),
-												child: Text(
-													"Jumanji: The Next Level",
-													style: TextStyle(
-														fontSize: 12.0,
-														color: Colors.white,
-														fontWeight: FontWeight.bold,
-													),
-													maxLines: 1,
+											child: Text(
+												"Jumanji: The Next Level",
+												style: TextStyle(
+													fontSize: 14.0,
+													color: Colors.white,
 												),
+												maxLines: 1,
 											),
 										),
-										ClipOval(
-											child: Material(
-												color: Colors.white.withOpacity(0.4),
-												child: InkWell(
-													splashColor: Colors.red,
-													child: SizedBox(
-														width: 24,
-														height: 24,
-														child: Icon(
-															Icons.play_arrow,
-															color: Colors.white,
-															size: 16.0,
-														),
-													),
-													onTap: () {},
-												),
-											),
-										)
+										PlayButton(
+											buttonSize: 24.0,
+											iconSize: 18.0,
+											buttonColor: Colors.white.withOpacity(0.3),
+											splashColor: Color.fromRGBO(231, 0, 0, 1),
+										),
 									],
 								),
 							),

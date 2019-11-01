@@ -3,26 +3,31 @@ import 'package:flutter/material.dart';
 class PlayButton extends StatelessWidget{
 	
 	final double buttonSize;
-	final Color buttonBg;
-	final double buttonPadding;
+	final double iconSize;
+	final Color buttonColor;
+	final Color splashColor;
 
-    const PlayButton({Key key, this.buttonSize, this.buttonBg, this.buttonPadding}) : super(key: key);
+    const PlayButton({Key key, this.buttonSize, this.iconSize, this.buttonColor, this.splashColor}) : super(key: key);
 	
 	@override
 	Widget build(BuildContext context) {
-		return RawMaterialButton(
-		    onPressed: () {
-			    print("Played");
-		    },
-		    child: Icon(
-			    Icons.play_arrow,
-			    color: Colors.white,
-			    size: buttonSize,
-		    ),
-		    shape: CircleBorder(),
-		    elevation: 2.0,
-		    fillColor: buttonBg,
-		    padding:EdgeInsets.all(buttonPadding),
+		return ClipOval(
+			child: Material(
+				color: buttonColor,
+				child: InkWell(
+					splashColor: splashColor,
+					child: SizedBox(
+						width: buttonSize,
+						height: buttonSize,
+						child: Icon(
+							Icons.play_arrow,
+							color: Colors.white,
+							size: iconSize,
+						),
+					),
+					onTap: () {},
+				),
+			),
 		);
 	}
 }
