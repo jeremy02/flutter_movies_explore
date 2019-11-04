@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_movies_explore/components/custom_app_bar.dart';
 import 'package:flutter_movies_explore/components/movies_list_component.dart';
 import 'package:flutter_movies_explore/components/play_button.dart';
+import 'package:flutter_movies_explore/models/movie.dart';
 import 'package:flutter_movies_explore/utils/constants.dart';
 import 'package:flutter_movies_explore/widgets/blurred_container.dart';
+import 'dart:math';
 
 class HomeScreen extends StatefulWidget{
 	@override
@@ -12,9 +14,18 @@ class HomeScreen extends StatefulWidget{
 
 class HomeScreenState extends State<HomeScreen>{
 	
+	Movie firstMovie;
+	
 	@override
 	void initState() {
 		super.initState();
+		
+		// Random 0 to length of moviesList:
+		int minRange = 0;
+		int maxRange = moviesList.length-1;
+		int selection = minRange + (new Random().nextInt(maxRange-minRange));
+		
+		firstMovie = moviesList[selection];
 	}
 	
 	@override
@@ -38,7 +49,7 @@ class HomeScreenState extends State<HomeScreen>{
 				fit: StackFit.expand,
 				children: <Widget>[
 					Image.asset(
-						"assets/images/joker_poster.jpg",
+						firstMovie.posterImageUrl,
 						fit: BoxFit.cover,
 					),
 					BlurredContainer(alignment: Alignment.bottomCenter, height: MediaQuery.of(context).size.height*0.30, horizontalOffset: 0.0, verticalOffset: 0.0, color: Colors.black.withOpacity(0.75)),
