@@ -23,7 +23,11 @@ class HomeScreenState extends State<HomeScreen>{
 		// Random 0 to length of moviesList:
 		int minRange = 0;
 		int maxRange = moviesList.length-1;
-		int selection = minRange + (new Random().nextInt(maxRange-minRange));
+		
+		// random number
+//		int selection = minRange + (new Random().nextInt(maxRange-minRange));
+		// or just get the first movie which is Joker
+		int selection = 0;
 		
 		firstMovie = moviesList[selection];
 	}
@@ -63,17 +67,16 @@ class HomeScreenState extends State<HomeScreen>{
 							height: MediaQuery.of(context).size.height*0.34,
 							margin: EdgeInsets.only(left: 16.0,right: 8.0),
 							child: Column(
+								mainAxisAlignment: MainAxisAlignment.start,
 								children: <Widget>[
 									Row(
+										crossAxisAlignment: CrossAxisAlignment.start,
+										mainAxisAlignment: MainAxisAlignment.spaceBetween,
 										children: <Widget>[
-											Column(
-												mainAxisAlignment: MainAxisAlignment.start,
-												crossAxisAlignment: CrossAxisAlignment.start,
-												children: <Widget>[
-													MovieInfoCaption(),
-												],
+											Expanded(
+												child: MovieInfoCaption(),
 											),
-											Spacer(),
+											SizedBox(width: 4.0),
 											Padding(
 												padding: EdgeInsets.only(right: 8.0),
 												child: PlayButton(
@@ -106,12 +109,14 @@ class HomeScreenState extends State<HomeScreen>{
 			crossAxisAlignment: CrossAxisAlignment.start,
 			children: <Widget>[
 				Text(
-					"Joker",
+					firstMovie.title,
 					style: TextStyle(
 						color: Colors.white,
 						fontWeight: FontWeight.bold,
-						fontSize: 32.0,
+						fontSize: 30.0,
 					),
+					maxLines: 1,
+					overflow: TextOverflow.fade,
 				),
 				SizedBox(
 					height: 6.0,
@@ -119,7 +124,7 @@ class HomeScreenState extends State<HomeScreen>{
 				Row(
 					children: <Widget>[
 						Text(
-							"English",
+							firstMovie.language,
 							style: TextStyle(
 								color: Colors.white,
 								fontWeight: FontWeight.w500,
@@ -136,7 +141,7 @@ class HomeScreenState extends State<HomeScreen>{
 							),
 						),
 						Text(
-							"Crime,Fantasy & Thriller",
+							firstMovie.genre,
 							style: TextStyle(
 								color: Colors.white,
 								fontWeight: FontWeight.w500,

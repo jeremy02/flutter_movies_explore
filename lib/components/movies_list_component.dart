@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movies_explore/models/movie.dart';
 import 'package:flutter_movies_explore/widgets/dots_indicator.dart';
 import 'package:flutter_movies_explore/widgets/movies_list_item.dart';
 
@@ -12,12 +13,16 @@ class MoviesListState extends State<MoviesList> {
 	var cardIndex = 0;
 	ScrollController _moviesListController;
 	
-	List<String> listCategories = ["Synopsis", "Cast", "Crew","User Reviews", "Critics"];
+	List<Movie> listMovies = moviesList;
 	
 	@override
 	void initState() {
 		super.initState();
 		_moviesListController = new ScrollController();
+		
+		// remove the first item from list since its already shown
+		// on the full screen
+		listMovies.removeAt(0);
 	}
 	
 	@override
@@ -35,11 +40,13 @@ class MoviesListState extends State<MoviesList> {
 						physics: NeverScrollableScrollPhysics(),
 						scrollDirection: Axis.horizontal,
 						controller: _moviesListController,
-						itemCount: listCategories.length,
+						itemCount: listMovies.length,
 						shrinkWrap: true,
 						itemBuilder: (BuildContext context, int index) {
 							return GestureDetector(
-								child: MoviesListItem(),
+								child: MoviesListItem(
+									movieObject: listMovies[index]
+								),
 								onHorizontalDragEnd: (details) {
 									// check if the swipe was a left swipe or right swipe and update the index accordingly.
 									// We then animate the list to scroll to that index in 500ms.
@@ -49,7 +56,7 @@ class MoviesListState extends State<MoviesList> {
 										}
 									}
 									else {
-										if(cardIndex < listCategories.length-1){
+										if(cardIndex < listMovies.length-1){
 											cardIndex ++;
 										}
 									}
@@ -67,7 +74,7 @@ class MoviesListState extends State<MoviesList> {
 					child: Center(
 						child: DotsIndicator(
 							controller: _moviesListController,
-							itemCount: listCategories.length,
+							itemCount: listMovies.length - 1,
 							currentIndex: cardIndex,
 						),
 					),

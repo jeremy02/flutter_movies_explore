@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movies_explore/components/play_button.dart';
+import 'package:flutter_movies_explore/models/movie.dart';
 
 class MoviesListItem extends StatelessWidget{
+	
+	final Movie movieObject;
+
+    const MoviesListItem({Key key, this.movieObject}) : super(key: key);
+	
 	@override
 	Widget build(BuildContext context) {
 		return Padding(
@@ -11,7 +17,7 @@ class MoviesListItem extends StatelessWidget{
 				child: Stack(
 					children: <Widget>[
 						Image.asset(
-							"assets/images/jumanji_poster.jpg",
+							movieObject.posterImageUrl,
 							fit: BoxFit.cover,
 							width: MediaQuery.of(context).size.width/2,
 						),
@@ -31,7 +37,7 @@ class MoviesListItem extends StatelessWidget{
 					gradient:LinearGradient(
 						begin: Alignment.topLeft,
 						end: Alignment.bottomRight,
-						colors: [Colors.white.withOpacity(0.05), Colors.white.withOpacity(0.05)],
+						colors: [Colors.black.withOpacity(0.20), Colors.black.withOpacity(0.20)],
 					)
 				),
 				child: Material(
@@ -55,8 +61,8 @@ class MoviesListItem extends StatelessWidget{
 			child: Container(
 				margin: EdgeInsets.only(top: 10.0, right: 10.0),
 				padding: EdgeInsets.symmetric(
-					vertical: 4.0,
-					horizontal: 6.0,
+					vertical: 6.0,
+					horizontal: 8.0,
 				),
 				decoration: BoxDecoration(
 					color: Colors.grey.shade900,
@@ -65,7 +71,7 @@ class MoviesListItem extends StatelessWidget{
 					)
 				),
 				child: Text(
-					"02:25",
+					movieObject.trailerTime,
 					style: TextStyle(
 						fontSize: 12.0,
 						color: Colors.white,
@@ -88,13 +94,13 @@ class MoviesListItem extends StatelessWidget{
 						Flexible(
 							flex: 1,
 							child: Text(
-								"Jumanji: The Next Level",
+								movieObject.title,
 								style: TextStyle(
 									color: Colors.white,
 									fontSize: 14,
-									height: 1.5,
+									fontWeight: FontWeight.bold,
 								),
-								softWrap: true,
+								softWrap: false,
 								maxLines: 1,
 							),
 						),
