@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_movies_explore/components/play_button.dart';
 import 'package:flutter_movies_explore/models/movie.dart';
 import 'package:flutter_movies_explore/screens/detail_screen.dart';
+import 'package:flutter_movies_explore/utils/fade_page_route.dart';
 
 class MoviesListItem extends StatelessWidget{
 	
@@ -51,9 +52,12 @@ class MoviesListItem extends StatelessWidget{
 						splashColor: Colors.black.withOpacity(0.2),
 						onTap: () {
 							Navigator.of(context).push(
-								MaterialPageRoute(
-									builder: (BuildContext context) {
-										return DetailScreen(movieDetail: movieObject);
+								FadePageRoute(
+									fullscreenDialog: true,
+									builder: (context) {
+										return DetailScreen(
+											movieDetail: movieObject,
+										);
 									}),
 							);
 						}
