@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_movies_explore/components/play_button.dart';
 import 'package:flutter_movies_explore/models/movie.dart';
 import 'package:flutter_movies_explore/screens/detail_screen.dart';
-import 'package:flutter_movies_explore/utils/fade_page_route.dart';
 
 class MoviesListItem extends StatelessWidget{
 	
