@@ -17,8 +17,7 @@ class TabBarViewComponent extends StatelessWidget{
 				Positioned(
 					bottom: MediaQuery.of(context).size.height/2.5,
 					right: MediaQuery.of(context).size.width/2.25,
-					child:
-					PlayButton(
+					child: PlayButton(
 						buttonSize: 60.0,
 						iconSize: 40.0,
 						buttonColor: Color.fromRGBO(231, 0, 0, 1),
@@ -50,7 +49,7 @@ class TabBarViewComponent extends StatelessWidget{
 				crossAxisAlignment: CrossAxisAlignment.start,
 				children: <Widget>[
 					Hero(
-						tag: '${movieDetail.title}-title',
+						tag: movieDetail.title,
 						child: HeroTitle(
 							title: movieDetail.title,
 							viewState: ViewState.enlarged,
@@ -94,9 +93,7 @@ class TabBarViewComponent extends StatelessWidget{
 					Container(
 						width: width,
 						child: Text(
-							"Hello, everyone! 👋"+
-								"What a great movie the JOKER is! I have seen recently. That is why I created this shot. I hope you will like it."+
-								"What a great movie the JOKER is! I have seen recently. That is why I created this shot. I hope you will like it.",
+							"${movieDetail.overview}",
 							style: TextStyle(
 								color: Colors.white,
 								fontSize: 14,

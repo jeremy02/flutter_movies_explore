@@ -109,7 +109,7 @@ class MoviesListItem extends StatelessWidget{
 						Flexible(
 							flex: 1,
 							child: Hero(
-								tag: '${movieObject.title}-title',
+								tag: movieObject.title,
 								flightShuttleBuilder: (
 									BuildContext flightContext,
 									Animation<double> animation,
