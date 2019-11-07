@@ -57,13 +57,6 @@ class MoviesListItem extends StatelessWidget{
 										return DetailScreen(movieDetail: movieObject);
 									}),
 							);
-							
-//							Navigator.of(context).push(
-//								FadePageRoute(
-//									builder: (BuildContext context) {
-//										return DetailScreen(movieDetail: movieObject);
-//									}),
-//							);
 						}
 					),
 				),
@@ -110,15 +103,18 @@ class MoviesListItem extends StatelessWidget{
 					children: <Widget>[
 						Flexible(
 							flex: 1,
-							child: Text(
-								movieObject.title,
-								style: TextStyle(
-									color: Colors.white,
-									fontSize: 14,
-									fontWeight: FontWeight.bold,
+							child: Hero(
+								tag: movieObject.title,
+								child: Text(
+									movieObject.title,
+									style: TextStyle(
+										color: Colors.white,
+										fontSize: 14,
+										fontWeight: FontWeight.bold,
+									),
+									softWrap: false,
+									maxLines: 1,
 								),
-								softWrap: false,
-								maxLines: 1,
 							),
 						),
 						InkWell(

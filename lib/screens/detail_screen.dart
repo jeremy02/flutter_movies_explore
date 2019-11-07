@@ -135,7 +135,7 @@ class DetailScreenState extends State<DetailScreen> with TickerProviderStateMixi
 	// the tabs to show
 	List<Widget> createTabBarViews() {
 		return List<Widget>.generate(listCategories.length, (int index){
-			return TabBarViewComponent(movieDetail: listCategories[index]);
+			return TabBarViewComponent(movieDetail: widget.movieDetail);
 		});
 	}
 }

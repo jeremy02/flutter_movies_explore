@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movies_explore/components/play_button.dart';
+import 'package:flutter_movies_explore/models/movie.dart';
 
 class TabBarViewComponent extends StatelessWidget{
 	
-	final String movieDetail;
+	final Movie movieDetail;
 
     const TabBarViewComponent({Key key, this.movieDetail}) : super(key: key);
     
@@ -46,12 +47,15 @@ class TabBarViewComponent extends StatelessWidget{
 				mainAxisAlignment: MainAxisAlignment.start,
 				crossAxisAlignment: CrossAxisAlignment.start,
 				children: <Widget>[
-					Text(
-						"Joker",
-						style: TextStyle(
-							color: Colors.white,
-							fontWeight: FontWeight.bold,
-							fontSize: 36.0,
+					Hero(
+						tag: movieDetail.title,
+						child: Text(
+							movieDetail.title,
+							style: TextStyle(
+								color: Colors.white,
+								fontWeight: FontWeight.bold,
+								fontSize: 36.0,
+							),
 						),
 					),
 					Padding(
