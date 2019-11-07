@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movies_explore/components/play_button.dart';
 import 'package:flutter_movies_explore/models/movie.dart';
+import 'package:flutter_movies_explore/screens/detail_screen.dart';
+import 'package:flutter_movies_explore/utils/fade_page_route.dart';
 
 class MoviesListItem extends StatelessWidget{
 	
@@ -16,12 +18,15 @@ class MoviesListItem extends StatelessWidget{
 				borderRadius: BorderRadius.all(Radius.circular(12.0)),
 				child: Stack(
 					children: <Widget>[
-						Image.asset(
-							movieObject.posterImageUrl,
-							fit: BoxFit.cover,
-							width: MediaQuery.of(context).size.width/2,
+						Hero(
+							tag: movieObject.posterImageUrl,
+							child: Image.asset(
+								movieObject.posterImageUrl,
+								fit: BoxFit.cover,
+								width: MediaQuery.of(context).size.width/2,
+							),
 						),
-						materialRippleBackGround(),
+						materialRippleBackGround(context),
 						trailerTimeContainer(),
 						bottomContainer(),
 					],
@@ -30,7 +35,7 @@ class MoviesListItem extends StatelessWidget{
 		);
 	}
 
-    Widget materialRippleBackGround() {
+    Widget materialRippleBackGround(BuildContext context) {
 		return Positioned.fill(
 			child: Container(
 				decoration: BoxDecoration(
@@ -45,9 +50,21 @@ class MoviesListItem extends StatelessWidget{
 					color: Colors.transparent,
 					child: InkWell(
 						splashColor: Colors.black.withOpacity(0.2),
-						onTap: () => {
-						
-						},
+						onTap: () {
+							Navigator.of(context).push(
+								MaterialPageRoute(
+									builder: (BuildContext context) {
+										return DetailScreen(movieDetail: movieObject);
+									}),
+							);
+							
+//							Navigator.of(context).push(
+//								FadePageRoute(
+//									builder: (BuildContext context) {
+//										return DetailScreen(movieDetail: movieObject);
+//									}),
+//							);
+						}
 					),
 				),
 			),
@@ -104,11 +121,16 @@ class MoviesListItem extends StatelessWidget{
 								maxLines: 1,
 							),
 						),
-						PlayButton(
-							buttonSize: 24.0,
-							iconSize: 18.0,
-							buttonColor: Colors.white.withOpacity(0.3),
-							splashColor: Color.fromRGBO(231, 0, 0, 1),
+						InkWell(
+							onTap: (){
+							
+							},
+							child: PlayButton(
+								buttonSize: 24.0,
+								iconSize: 18.0,
+								buttonColor: Colors.white.withOpacity(0.3),
+								splashColor: Color.fromRGBO(231, 0, 0, 1),
+							),
 						),
 					],
 				),

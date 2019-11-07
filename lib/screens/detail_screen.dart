@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movies_explore/components/custom_app_bar.dart';
 import 'package:flutter_movies_explore/components/tab_bar_view_component.dart';
+import 'package:flutter_movies_explore/models/movie.dart';
 import 'package:flutter_movies_explore/widgets/blurred_container.dart';
 
 class DetailScreen extends StatefulWidget{
 	
-	final String title;
+	final Movie movieDetail;
 
-    const DetailScreen({Key key, this.title}) : super(key: key);
+    const DetailScreen({Key key, this.movieDetail}) : super(key: key);
 	
 	@override
 	DetailScreenState createState() => DetailScreenState();
@@ -53,14 +54,17 @@ class DetailScreenState extends State<DetailScreen> with TickerProviderStateMixi
 					MediaQuery.of(context).size.width,
 					56,
 				),
-				child: CustomAppBar(showLogo: false, movieTitle: widget.title),
+				child: CustomAppBar(showLogo: false, movieTitle: widget.movieDetail.title),
 			),
 			body: Stack(
 				fit: StackFit.expand,
 				children: <Widget>[
-					Image.asset(
-						"assets/images/joker_detail_poster.jpg",
-						fit: BoxFit.cover,
+					Hero(
+						tag: widget.movieDetail.posterImageUrl,
+						child: Image.asset(
+							widget.movieDetail.detailPosterImageUrl,
+							fit: BoxFit.cover,
+						),
 					),
 					BlurredContainer(alignment: Alignment.topCenter, height: MediaQuery.of(context).size.height*0.08, horizontalOffset: 0.0, verticalOffset: 0.0, color: Colors.black),
 					Column(
