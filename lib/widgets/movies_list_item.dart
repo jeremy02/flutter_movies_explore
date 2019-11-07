@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movies_explore/components/hero_title.dart';
 import 'package:flutter_movies_explore/components/play_button.dart';
 import 'package:flutter_movies_explore/models/movie.dart';
 import 'package:flutter_movies_explore/screens/detail_screen.dart';
 import 'package:flutter_movies_explore/utils/fade_page_route.dart';
+import 'package:flutter_movies_explore/utils/view_state.dart';
 
 class MoviesListItem extends StatelessWidget{
 	
@@ -107,15 +109,29 @@ class MoviesListItem extends StatelessWidget{
 						Flexible(
 							flex: 1,
 							child: Hero(
-								tag: movieObject.title,
-								child: Text(
-									movieObject.title,
-									style: TextStyle(
-										color: Colors.white,
-										fontSize: 14,
-										fontWeight: FontWeight.bold,
-									),
-									softWrap: false,
+								tag: '${movieObject.title}-title',
+								flightShuttleBuilder: (
+									BuildContext flightContext,
+									Animation<double> animation,
+									HeroFlightDirection flightDirection,
+									BuildContext fromHeroContext,
+									BuildContext toHeroContext,
+									) {
+									return HeroTitle(
+										title: movieObject.title,
+										isOverflow: false,
+										viewState: flightDirection == HeroFlightDirection.push
+											? ViewState.enlarge
+											: ViewState.shrink,
+										smallFontSize: 14.0,
+										largeFontSize: 32.0,
+									);
+								},
+								child: HeroTitle(
+									title: movieObject.title,
+									viewState: ViewState.shrunk,
+									textColor: Colors.white,
+									fontWeight: FontWeight.bold,
 									maxLines: 1,
 								),
 							),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movies_explore/components/hero_title.dart';
 import 'package:flutter_movies_explore/components/play_button.dart';
 import 'package:flutter_movies_explore/models/movie.dart';
+import 'package:flutter_movies_explore/utils/view_state.dart';
 
 class TabBarViewComponent extends StatelessWidget{
 	
@@ -17,8 +19,8 @@ class TabBarViewComponent extends StatelessWidget{
 					right: MediaQuery.of(context).size.width/2.25,
 					child:
 					PlayButton(
-						buttonSize: 48.0,
-						iconSize: 28.0,
+						buttonSize: 60.0,
+						iconSize: 40.0,
 						buttonColor: Color.fromRGBO(231, 0, 0, 1),
 						splashColor: Colors.white.withOpacity(0.2),
 					),
@@ -48,14 +50,13 @@ class TabBarViewComponent extends StatelessWidget{
 				crossAxisAlignment: CrossAxisAlignment.start,
 				children: <Widget>[
 					Hero(
-						tag: movieDetail.title,
-						child: Text(
-							movieDetail.title,
-							style: TextStyle(
-								color: Colors.white,
-								fontWeight: FontWeight.bold,
-								fontSize: 36.0,
-							),
+						tag: '${movieDetail.title}-title',
+						child: HeroTitle(
+							title: movieDetail.title,
+							viewState: ViewState.enlarged,
+							textColor: Colors.white,
+							fontWeight: FontWeight.bold,
+							maxLines: 1,
 						),
 					),
 					Padding(
@@ -63,7 +64,7 @@ class TabBarViewComponent extends StatelessWidget{
 						child: Row(
 							children: <Widget>[
 								Text(
-									"English",
+									movieDetail.language,
 									style: TextStyle(
 										color: Colors.white,
 										fontWeight: FontWeight.w500,
@@ -80,7 +81,7 @@ class TabBarViewComponent extends StatelessWidget{
 									),
 								),
 								Text(
-									"Crime,Fantasy & Thriller",
+									movieDetail.genre,
 									style: TextStyle(
 										color: Colors.white,
 										fontWeight: FontWeight.w500,
