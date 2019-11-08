@@ -12,7 +12,7 @@ The images below shows the inspiration concept of the app.
 
 App  Preview            |         Home Screen      |  Detail Screen
 :-------------------------:|:-------------------------:|:-------------------------:
-![](screenshots/app_preview.png)  |  ![](screenshots/home_screen.png)  |  ![](screenshots/home_screen.png)
+![](screenshots/app_preview.png)  |  ![](screenshots/home_screen.png)  |  ![](screenshots/detail_screen.png)
 
 ## Design Details
 As exposed on the inspiration video, there's all the design details also present in this app.
