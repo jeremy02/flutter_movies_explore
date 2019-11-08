@@ -17,7 +17,7 @@ class HeroTitle extends StatefulWidget {
 		@required this.title,
 		@required this.viewState,
 		this.smallFontSize,
-		this.largeFontSize = 32.0,
+		this.largeFontSize,
 		this.maxLines = 1,
 		this.textOverflow = TextOverflow.ellipsis,
 		this.isOverflow = false,

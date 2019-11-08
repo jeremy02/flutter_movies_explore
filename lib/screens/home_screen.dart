@@ -4,12 +4,9 @@ import 'package:flutter_movies_explore/components/hero_title.dart';
 import 'package:flutter_movies_explore/components/movies_list_component.dart';
 import 'package:flutter_movies_explore/components/play_button.dart';
 import 'package:flutter_movies_explore/models/movie.dart';
-import 'package:flutter_movies_explore/screens/detail_screen.dart';
 import 'package:flutter_movies_explore/utils/constants.dart';
-import 'package:flutter_movies_explore/utils/fade_page_route.dart';
 import 'package:flutter_movies_explore/utils/view_state.dart';
 import 'package:flutter_movies_explore/widgets/blurred_container.dart';
-import 'dart:math';
 
 class HomeScreen extends StatefulWidget{
 	@override
