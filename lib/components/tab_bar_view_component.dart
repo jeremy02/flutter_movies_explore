@@ -17,11 +17,16 @@ class TabBarViewComponent extends StatelessWidget{
 				Positioned(
 					bottom: MediaQuery.of(context).size.height/2.5,
 					right: MediaQuery.of(context).size.width/2.25,
-					child: PlayButton(
-						buttonSize: 60.0,
-						iconSize: 40.0,
-						buttonColor: Color.fromRGBO(231, 0, 0, 1),
-						splashColor: Colors.white.withOpacity(0.2),
+					child: Hero(
+						tag: '${movieDetail.title}-btn',
+						child: PlayButton(
+							buttonSize: 60.0,
+							iconSize: 40.0,
+							buttonColor: Color.fromRGBO(231, 0, 0, 1),
+							splashColor: Colors.white.withOpacity(0.2),
+							movieObject: movieDetail,
+							isDetail: true,
+						),
 					),
 				),
 				Positioned(

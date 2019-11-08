@@ -30,7 +30,7 @@ class MoviesListItem extends StatelessWidget{
 						),
 						materialRippleBackGround(context),
 						trailerTimeContainer(),
-						bottomContainer(),
+						bottomContainer(context),
 					],
 				),
 			),
@@ -53,15 +53,7 @@ class MoviesListItem extends StatelessWidget{
 					child: InkWell(
 						splashColor: Colors.black.withOpacity(0.2),
 						onTap: () {
-							Navigator.of(context).push(
-								FadePageRoute(
-									fullscreenDialog: true,
-									builder: (context) {
-										return DetailScreen(
-											movieDetail: movieObject,
-										);
-									}),
-							);
+							goToDetailScreen(context);
 						}
 					),
 				),
@@ -96,7 +88,7 @@ class MoviesListItem extends StatelessWidget{
 		);
     }
 
-    Widget bottomContainer() {
+    Widget bottomContainer(BuildContext context) {
 		return Positioned(
 			left: 0.0,
 			right: 0.0,
@@ -132,24 +124,38 @@ class MoviesListItem extends StatelessWidget{
 									viewState: ViewState.shrunk,
 									textColor: Colors.white,
 									fontWeight: FontWeight.bold,
+									smallFontSize: 14.0,
+									largeFontSize: 32.0,
 									maxLines: 1,
 								),
 							),
 						),
-						InkWell(
-							onTap: (){
-							
-							},
+						Hero(
+							tag: '${movieObject.title}-btn',
 							child: PlayButton(
 								buttonSize: 24.0,
 								iconSize: 18.0,
 								buttonColor: Colors.white.withOpacity(0.3),
 								splashColor: Color.fromRGBO(231, 0, 0, 1),
+								movieObject: movieObject,
+								isDetail: false,
 							),
 						),
 					],
 				),
 			),
 		);
+    }
+
+    goToDetailScreen(BuildContext context) {
+	    Navigator.of(context).push(
+		    FadePageRoute(
+			    fullscreenDialog: true,
+			    builder: (context) {
+				    return DetailScreen(
+					    movieDetail: movieObject,
+				    );
+			    }),
+	    );
     }
 }
