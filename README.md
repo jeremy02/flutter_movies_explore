@@ -18,4 +18,4 @@ App  Preview
 As exposed on the inspiration video, there's all the design details also present in this app.
 
 ## Notes
-Still in progress
+Finished
