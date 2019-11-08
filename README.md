@@ -10,9 +10,9 @@ The app was created to simulate all the system behind the UI kit in the link. Th
 ## The Inspiration
 The images below shows the inspiration concept of the app.
 
-App  Preview
-:-------------------------:
-![](screenshots/app_preview.png)
+App  Preview            |         Home Screen      |  Detail Screen
+:-------------------------:|:-------------------------:|:-------------------------:
+![](screenshots/app_preview.png)  |  ![](screenshots/home_screen.png)  |  ![](screenshots/home_screen.png)
 
 ## Design Details
 As exposed on the inspiration video, there's all the design details also present in this app.
